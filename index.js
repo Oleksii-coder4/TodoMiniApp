@@ -7,8 +7,10 @@ function addTask(input, todoList) {
   } else {
     todoList.insertAdjacentHTML(
       "beforeend",
-      `<li id="deleteTaskButton" class="task"><p>${input.value}</p><button class="del_button"></button></li>`
+      `<li id="deleteTaskButton" class="task"><p></p><button class="del_button"></button></li>`
     );
+    const taskElement = todoList.lastElementChild;
+    taskElement.querySelector("p").textContent = input.value;
     saveData();
   }
   input.value = "";

@@ -88,7 +88,7 @@ ul {
 
 p {
   /* overflow: hidden; */
-  max-width: 184px;
+  max-width: 9rem;
   white-space: wrap;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
@@ -178,11 +178,11 @@ p {
 @media (min-width: 1024px) {
   .todo_container {
     font-size: 34px;
-    min-width: 40vw;
+    min-width: 42vw;
     min-height: 60vh;
   }
   p {
-    max-width: 26vw;
+    max-width: 24vw;
     padding: 5px 5px 5px 20px;
   }
   input {
