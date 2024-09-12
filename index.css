@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  background: linear-gradient(
+    177.9deg,
+    rgb(58, 62, 88) 3.6%,
+    rgb(119, 127, 148) 105.8%
+  );
+  color: white;
+}
+
+.todo_container {
+  min-height: 350px;
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.row {
+  border-radius: 50%;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 6px 7px 20px rgba(0, 0, 0, 0.3);
+  background: white;
+}
+
+input {
+  flex: 1;
+  background: white;
+  padding-left: 16px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+.add_task_button {
+  border-radius: 28px;
+  padding: 15px;
+  background: #72a0c1;
+  border: 2px solid white;
+  right: 5px;
+  color: white;
+  font-size: 20px;
+  transition: background-color 0.1s ease;
+  min-width: 100px;
+}
+
+.add_task_button:active {
+  background-color: #4b7490;
+}
+
+.task_container {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  max-height: 350px;
+  overflow: auto;
+}
+
+.task {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 50px;
+  margin-top: 25px;
+}
+
+p {
+  /* overflow: hidden; */
+  max-width: 184px;
+  white-space: wrap;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.task-checked {
+  text-decoration: line-through;
+}
+
+.task::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid #fff;
+  height: 18px;
+  width: 18px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.task-checked::before {
+  content: "";
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  left: 16px;
+  transform: rotate(45deg);
+  border-radius: 0px;
+  height: 15px;
+  width: 7px;
+}
+
+.del_button {
+  background-color: rgb(48, 47, 47, 0.7);
+  min-width: 35px;
+  min-height: 35px;
+  border: none;
+  position: relative;
+}
+
+.del_button:active {
+  background-color: rgb(165, 11, 41, 0.7);
+}
+
+.del_button:before,
+.del_button:after {
+  position: absolute;
+  left: 16px;
+  top: 1px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: white;
+}
+.del_button:before {
+  transform: rotate(45deg);
+}
+.del_button:after {
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 768px) {
+  .todo_container {
+    font-size: 26px;
+    min-width: 600px;
+    min-height: 500px;
+  }
+  p {
+    max-width: 400px;
+  }
+  input {
+    font-size: 20px;
+  }
+  .add_task_button {
+    font-size: 24px;
+    min-width: 100px;
+  }
+  ul {
+    max-height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .todo_container {
+    font-size: 34px;
+    min-width: 800px;
+    min-height: 700px;
+  }
+  p {
+    max-width: 550px;
+    padding: 5px 5px 5px 20px;
+  }
+  input {
+    font-size: 28px;
+  }
+  .add_task_button {
+    font-size: 32px;
+    min-width: 140px;
+  }
+
+  .task::before {
+    border: 1px solid #fff;
+    height: 28px;
+    width: 28px;
+    left: 4px;
+  }
+
+  .task-checked::before {
+    border-width: 0 2px 2px 0;
+    left: 14px;
+    height: 24px;
+    width: 11px;
+  }
+
+  ul {
+    max-height: 700px;
+  }
+}
