@@ -178,11 +178,11 @@ p {
 @media (min-width: 1024px) {
   .todo_container {
     font-size: 34px;
-    min-width: 36vw;
+    min-width: 550px;
     min-height: 50vh;
   }
   p {
-    max-width: 550px;
+    max-width: 490px;
     padding: 5px 5px 5px 20px;
   }
   input {
