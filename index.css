@@ -92,6 +92,7 @@ p {
   white-space: wrap;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
+  font-family: monospace;
 }
 
 .task-checked {
@@ -154,11 +155,11 @@ p {
 @media (min-width: 768px) {
   .todo_container {
     font-size: 26px;
-    min-width: 600px;
-    min-height: 500px;
+    min-width: 500px;
+    min-height: 450px;
   }
   p {
-    max-width: 400px;
+    max-width: 300px;
   }
   input {
     font-size: 20px;
@@ -168,15 +169,15 @@ p {
     min-width: 100px;
   }
   ul {
-    max-height: 500px;
+    max-height: 420px;
   }
 }
 
 @media (min-width: 1024px) {
   .todo_container {
     font-size: 34px;
-    min-width: 800px;
-    min-height: 700px;
+    min-width: 700px;
+    min-height: 600px;
   }
   p {
     max-width: 550px;
@@ -205,6 +206,6 @@ p {
   }
 
   ul {
-    max-height: 700px;
+    max-height: 600px;
   }
 }
