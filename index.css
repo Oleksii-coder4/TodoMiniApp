@@ -155,8 +155,10 @@ p {
 @media (min-width: 768px) {
   .todo_container {
     font-size: 26px;
-    min-width: 500px;
     min-height: 450px;
+    max-height: 500px;
+    min-width: 500px;
+    max-width: 550px;
   }
   p {
     max-width: 300px;
@@ -178,6 +180,7 @@ p {
     font-size: 34px;
     min-width: 700px;
     min-height: 600px;
+    max-height: 650px;
   }
   p {
     max-width: 550px;
@@ -206,6 +209,6 @@ p {
   }
 
   ul {
-    max-height: 600px;
+    max-height: 550px;
   }
 }
