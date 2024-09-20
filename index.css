@@ -27,6 +27,10 @@ main {
   font-size: 18px;
 }
 
+.task_checker {
+  display: flex;
+}
+
 .row {
   border-radius: 50%;
   border-radius: 25px;
