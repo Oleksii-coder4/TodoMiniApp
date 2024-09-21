@@ -6,9 +6,9 @@ const totalChecker = document.getElementById("totalChecker");
 const todoChecker = document.getElementById("todoChecker");
 
 const showTasksAmount = function (total = 0, done = 0, todo = 0) {
-  doneChecker.textContent = `Done: ${done}`;
-  totalChecker.textContent = `Total: ${total}`;
-  todoChecker.textContent = `To-do: ${todo}`;
+  doneChecker.textContent = `Done: ${done} `;
+  totalChecker.textContent = `Total: ${total} `;
+  todoChecker.textContent = `To-do: ${todo} `;
 };
 
 const CheckAndShowTasksAmount = function () {
@@ -30,7 +30,7 @@ function addTask(input, todoList) {
   } else {
     todoList.insertAdjacentHTML(
       "beforeend",
-      `<li id="deleteTaskButton" class="task"><p></p><button class="del_button"></button></li>`
+      `<li id="deleteTaskButton" class="task"><p></p> <div class="buttons_container"> <button class="del_button"></button> <button class="edit_button">&#9998;</button> </div> </li>`
     );
     const taskElement = todoList.lastElementChild;
     taskElement.querySelector("p").textContent = input.value;
@@ -39,9 +39,40 @@ function addTask(input, todoList) {
   input.value = "";
 }
 
+function editTask(event) {
+  if (
+    event.target.tagName === "BUTTON" &&
+    event.target.classList.contains("edit_button")
+  ) {
+    const liElement = event.target.closest("li");
+    const pElement = liElement.querySelector("p");
+    if (pElement) {
+      const inputElement = document.createElement("input");
+      inputElement.setAttribute("type", "text");
+      inputElement.setAttribute("class", "edit_input");
+      inputElement.value = pElement.textContent;
+      inputElement.addEventListener("blur", (event) => {
+        pElement.textContent = inputElement.value;
+        inputElement.replaceWith(pElement);
+      });
+      inputElement.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          pElement.textContent = inputElement.value;
+          inputElement.replaceWith(pElement);
+        }
+      });
+      pElement.replaceWith(inputElement);
+      inputElement.focus();
+    }
+  }
+}
+
 function deleteTask(event) {
-  if (event.target.tagName === "BUTTON") {
-    event.target.parentElement.remove();
+  if (
+    event.target.tagName === "BUTTON" &&
+    event.target.classList.contains("del_button")
+  ) {
+    event.target.closest("li").remove();
     saveData();
   }
 }
@@ -49,6 +80,7 @@ function deleteTask(event) {
 function checkTask(event) {
   if (event.target.tagName === "LI") {
     event.target.classList.toggle("task-checked");
+    event.target.querySelector("p").classList.toggle("p-checked");
     saveData();
   }
 }
@@ -59,6 +91,7 @@ function saveData() {
 }
 
 todoList.addEventListener("click", checkTask);
+todoList.addEventListener("click", editTask);
 todoList.addEventListener("click", deleteTask);
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

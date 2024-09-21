@@ -31,6 +31,10 @@ main {
   display: flex;
 }
 
+.task_amount {
+  margin: 0 5px;
+}
+
 .row {
   border-radius: 50%;
   border-radius: 25px;
@@ -100,6 +104,10 @@ p {
 }
 
 .task-checked {
+  text-decoration: none;
+}
+
+.p-checked {
   text-decoration: line-through;
 }
 
@@ -125,6 +133,29 @@ p {
   border-radius: 0px;
   height: 15px;
   width: 7px;
+}
+
+.buttons_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 0 0;
+  padding: 0px;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+}
+
+.edit_input {
+  color: white;
+  font-style: italic;
+  max-width: 120px;
+  padding: 0 20px;
 }
 
 .del_button {
@@ -177,6 +208,9 @@ p {
   ul {
     max-height: 420px;
   }
+  .edit_input {
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -213,5 +247,8 @@ p {
 
   ul {
     max-height: 49vh;
+  }
+  .edit_input {
+    max-width: 24vw;
   }
 }
