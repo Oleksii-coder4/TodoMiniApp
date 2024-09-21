@@ -54,11 +54,13 @@ function editTask(event) {
       inputElement.addEventListener("blur", (event) => {
         pElement.textContent = inputElement.value;
         inputElement.replaceWith(pElement);
+        saveData();
       });
       inputElement.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
           pElement.textContent = inputElement.value;
           inputElement.replaceWith(pElement);
+          saveData();
         }
       });
       pElement.replaceWith(inputElement);
