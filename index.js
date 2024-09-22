@@ -40,26 +40,44 @@ function addTask(input, todoList) {
 }
 
 function editTask(event) {
+  const liElement = event.target.closest("li");
+  const pElement = liElement.querySelector("p");
+  const editButton = liElement.querySelector(".edit_button");
   if (
     event.target.tagName === "BUTTON" &&
     event.target.classList.contains("edit_button")
   ) {
-    const liElement = event.target.closest("li");
-    const pElement = liElement.querySelector("p");
     if (pElement) {
+      const saveButton = document.createElement("button");
+      saveButton.setAttribute("class", "save_button");
+      saveButton.innerHTML = "&#9745";
+      saveButton.addEventListener("click", () => {
+        pElement.textContent = inputElement.value;
+        inputElement.replaceWith(pElement);
+        saveButton.replaceWith(editButton);
+
+        saveData();
+      });
+      editButton.replaceWith(saveButton);
+
       const inputElement = document.createElement("input");
       inputElement.setAttribute("type", "text");
       inputElement.setAttribute("class", "edit_input");
       inputElement.value = pElement.textContent;
       inputElement.addEventListener("blur", (event) => {
+        if (event.target.classList.contains === "save_button") {
+          return;
+        }
         pElement.textContent = inputElement.value;
         inputElement.replaceWith(pElement);
+        saveButton.replaceWith(editButton);
         saveData();
       });
       inputElement.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
           pElement.textContent = inputElement.value;
           inputElement.replaceWith(pElement);
+          saveButton.replaceWith(editButton);
           saveData();
         }
       });

@@ -151,6 +151,17 @@ p {
   font-size: 30px;
 }
 
+.save_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 0 0;
+  padding: 0px;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+}
+
 .edit_input {
   color: white;
   font-style: italic;
